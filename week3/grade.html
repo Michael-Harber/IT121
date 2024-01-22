@@ -10,11 +10,15 @@
 
 <body>
 
+<h3>Students & Grades:</h3>
+
 <script>
 
 let grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
 
 let gradeArray = grades.split(", ");
+
+let length = gradeArray.length;
 
 let names = [];
 let numbers = [];
@@ -34,6 +38,23 @@ for (let i = 0; i < names.length; i++) {
 }
 
 document.body.appendChild(newUl);
+
+let totalStudents = document.createElement('div');
+totalStudents.innerHTML = "<h3>Total Students:</h3>" + gradeArray.length;
+document.body.appendChild(totalStudents);
+
+let scores = [25, 32, 34, 22, 28, 15, 19, 30, 26, 27]
+let sum = 0;
+for (let i = 0; i < scores.length; i++) {
+    sum += scores[i];
+}
+
+let average = sum /  length;
+
+let averageGrade = document.createElement('div');
+averageGrade.innerHTML = "<h3>Average Grade:</h3>" + average;
+document.body.appendChild(averageGrade);
+
 
 
 </script>
