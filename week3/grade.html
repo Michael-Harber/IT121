@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HW 2: Making The Grade</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
+<h1>HW 2: Making The Grade</h1>
 
 <body>
 
-<script src="grade.js"></script>
-
-
 <script>
 
-grade.split(', ')
+let grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+
+let gradeArray = grades.split(", ");
+
+let names = [];
+let numbers = [];
+
+for (let i = 0; i < gradeArray.length; i++) {
+  let pair = gradeArray[i].split("|");
+  names.push(pair[0]);
+  numbers.push(pair[1]);
+}
+
+let newUl = document.createElement('ul');
+
+for (let i = 0; i < names.length; i++) {
+  let newLi = document.createElement('li');
+  newLi.textContent = names[i] + " - " + numbers[i];
+  newUl.appendChild(newLi);
+}
+
+document.body.appendChild(newUl);
+
 
 </script>
     

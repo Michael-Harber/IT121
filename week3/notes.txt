@@ -1,0 +1,42 @@
+// let grades = ["jim|25", "sue|32", "mary|34", "ann|22", "ted|28", "frank|15", "lisa|19", "mike|30", "ahn|26", "vishaya|27"];
+
+
+
+
+// document.getElementById("sizes").innerHTML = size;
+
+
+// let text = "<ul>";
+// for (let i = 0; i < size; i++) {
+// text += "<li>" + grades[i] + "<li>";}
+// text += "<ul>";
+
+
+// document.getElementById("demo").innerHTML = text;
+
+
+// let newGrades = grades.split('|');
+
+// document.getElementById("myList").innerHTML = newGrades;
+
+<p id="myList"></p>
+<p id="sizes"></p>
+<p id="scores"></p> 
+
+// let students2 = students.sort();
+
+// names
+let name = []
+
+// grades
+let grade = []
+
+for (let i=0; i<length; i++){
+    let x = students[i].split("|")
+    let name = x[0]
+    let grade = x[1]
+    name.push(name)
+    grade.push(grade)
+}
+
+document.getElementById("name").innerHTML = name;
