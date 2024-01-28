@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+
+<h1>Functions & validation</h1>
+
+<form id="form1" action="#" onsubmit="return validateForm(this);">
+  first name: <input type="text" name="firstname"><br>
+  last name: <input type="text" name="lastname"><br>
+  password: <input type="text" name="password"><br>
+
+  <button >Check</button>
+</form>
+
+<hr><div id="message"></div>
+
+<script>
+
+const validatePassword = (validPassord) => {
+  if (password.length < 8) {
+    return false;
+  }
+
+  let hasUpperCase = false;
+  let hasLowerCase = false;
+
+  for (const char of password) {
+    if (char >='A' && char <= 'Z') {
+      hasUpperCase = true;
+    }
+    if (char >= 'a' && char <= 'Z') {
+      hasLowerCase = true;
+    }
+  }
+
+  return hasUpperCase &&  hasLowerCase;
+}
+
+
+const validateForm = (myForm) => {
+
+  var firstname = myForm.firstname.value; // get text of firstname field
+  var lastname = myFrom.lastname.value;
+
+  // update 'message' DIV with appropriate wording
+  $("#message").html("Button clicked");
+
+  /* Form validation code goes here
+  */
+
+  return false; // prevent page reload
+}
+
+
+</script>
+
+</body>
+</html>
