@@ -46,12 +46,12 @@ const validateForm = (myForm) => {
   var password = myForm.password.value;
 
 
-  if (firstname.trim() === "") {
+  if (firstname === "") {
     $("#message").html("Please enter your first name.");
     return false;
   }
 
-  if (lastname.trim() === "") {
+  if (lastname === "") {
     $("#message").html("Please enter your last name.");
     return false;
   }
