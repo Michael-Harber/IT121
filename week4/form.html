@@ -19,19 +19,19 @@
 
 <script>
 
-const validatePassword = (validPassord) => {
-  if (password.length < 8) {
+const validatePassword = (validPassword) => {
+  if (validPassword.length < 8) {
     return false;
   }
 
   let hasUpperCase = false;
   let hasLowerCase = false;
 
-  for (const char of password) {
+  for (const char of validPassword) {
     if (char >='A' && char <= 'Z') {
       hasUpperCase = true;
     }
-    if (char >= 'a' && char <= 'Z') {
+    if (char >= 'a' && char <= 'z') {
       hasLowerCase = true;
     }
   }
@@ -39,19 +39,33 @@ const validatePassword = (validPassord) => {
   return hasUpperCase &&  hasLowerCase;
 }
 
-
 const validateForm = (myForm) => {
 
-  var firstname = myForm.firstname.value; // get text of firstname field
-  var lastname = myFrom.lastname.value;
+  var firstname = myForm.firstname.value; 
+  var lastname = myForm.lastname.value;
+  var password = myForm.password.value;
 
-  // update 'message' DIV with appropriate wording
-  $("#message").html("Button clicked");
 
-  /* Form validation code goes here
-  */
+  if (firstname.trim() === "") {
+    $("#message").html("Please enter your first name.");
+    return false;
+  }
 
-  return false; // prevent page reload
+  if (lastname.trim() === "") {
+    $("#message").html("Please enter your last name.");
+    return false;
+  }
+
+  if (!validatePassword(password)) {
+    $("#message").html("Your password must have at least one upper case letter, one lower case letter, and be at least 8 characters long.");
+    return false;
+  } 
+
+  
+  $("#message").html("Form submitted successfully!");
+
+  
+  return false;
 }
 
 
