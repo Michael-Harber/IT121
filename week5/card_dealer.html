@@ -1,46 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Generator</title>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
 <body>
 
 <h1>Robo Dealer</h1>
 
-<button onclick="dealHand();">Deal Hand</button>
+  <button onclick="dealHand();">Deal Hand</button>
 
 <hr><div id="card_hand"></div>
 
 <script>
 
-const dealHand = () => {
-
-  const cards = generateCards();
-  const handDisplay = document.getElementById('card_hand');
+  /* define Card object and deck of cards here */
 
 
-  $("#card_hand").html(`${cards.join(', ')}`);
+  const dealHand = () => {
 
-  return false;
-}
+    /* code to deal a card hand goes here */
 
-const generateCards = () => {
-  const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-  const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+    // update 'card_hand' DIV with appropriate information
+    $("#card_hand").html("Button clicked");
 
-  let cards = [];
-
-  for (let i = 0; i < 5; i++) {
-    const suit = suits[Math.floor(Math.random() * suits.length)];
-    const value = values[Math.floor(Math.random() * values.length)];
-    cards.push(`${value} of ${suit}`);
+    return false; // prevent page reload
   }
-
-  return cards;
-};
 
 </script>
 
