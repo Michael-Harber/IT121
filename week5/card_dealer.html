@@ -14,74 +14,82 @@
 <script>
 
 function Card(suit, value) {
-  this.suit = suit
-  this.value = value
+  this.suit = suit;
+  this.value = value;
 }
 
-two_of_clubs = Card("Clubs", 2);
-three_of_clubs = Card("Clubs", 3);
-four_of_clubs = Card("Clubs", 4);
-five_of_clubs = Card("Clubs", 5);
-six_of_clubs = Card("Clubs", 6);
-seven_of_clubs = Card("Clubs", 7);
-eight_of_clubs = Card("Clubs", 8);
-nine_of_clubs = Card("Clubs", 9);
-ten_of_clubs = Card("Clubs", 10);
-jack_of_clubs = Card("Clubs", "Jack");
-queen_of_clubs = Card("Clubs", "Queen");
-king_of_clubs = Card("Clubs", "King");
-ace_of_clubs = Card("Clubs", "Ace");
+const cards = [ 
+new Card("Clubs", 2),
+new Card("Clubs", 3),
+new Card("Clubs", 4),
+new Card("Clubs", 5),
+new Card("Clubs", 6),
+new Card("Clubs", 7),
+new Card("Clubs", 8),
+new Card("Clubs", 9),
+new Card("Clubs", 10),
+new Card("Clubs", "Jack"),
+new Card("Clubs", "Queen"),
+new Card("Clubs", "King"),
+new Card("Clubs", "Ace"),
 
-two_of_spades = Card("Spades", 2);
-three_of_spades = Card("Spades", 3);
-four_of_spades = Card("Spades", 4);
-five_of_spades = Card("Spades", 5);
-six_of_spades = Card("Spades", 6);
-seven_of_spades = Card("Spades", 7);
-eight_of_spades = Card("Spades", 8);
-nine_of_spades = Card("Spades", 9);
-ten_of_spades = Card("Spades", 10);
-jack_of_spades = Card("Spades", "Jack");
-queen_of_spades = Card("Spades", "Queen");
-king_of_spades = Card("Spades", "King");
-ace_of_spades = Card("Spades", "Ace");
+new Card("Spades", 2),
+new Card("Spades", 3),
+new Card("Spades", 4),
+new Card("Spades", 5),
+new Card("Spades", 6),
+new Card("Spades", 7),
+new Card("Spades", 8),
+new Card("Spades", 9),
+new Card("Spades", 10),
+new Card("Spades", "Jack"),
+new Card("Spades", "Queen"),
+new Card("Spades", "King"),
+new Card("Spades", "Ace"),
 
-two_of_diamonds = Card("Diamonds", 2);
-three_of_diamonds = Card("Diamonds", 3);
-four_of_diamonds = Card("Diamonds", 4);
-five_of_diamonds = Card("Diamonds", 5);
-six_of_diamonds = Card("Diamonds", 6);
-seven_of_diamonds = Card("Diamonds", 7);
-eight_of_diamonds = Card("Diamonds", 8);
-nine_of_diamonds = Card("Diamonds", 9);
-ten_of_diamonds = Card("Diamonds", 10);
-jack_of_diamonds = Card("Diamonds", "Jack");
-queen_of_diamonds = Card("Diamonds", "Queen");
-king_of_diamonds = Card("Diamonds", "King");
-ace_of_diamonds = Card("Diamonds", "Ace");
+new Card("Diamonds", 2),
+new Card("Diamonds", 3),
+new Card("Diamonds", 4),
+new Card("Diamonds", 5),
+new Card("Diamonds", 6),
+new Card("Diamonds", 7),
+new Card("Diamonds", 8),
+new Card("Diamonds", 9),
+new Card("Diamonds", 10),
+new Card("Diamonds", "Jack"),
+new Card("Diamonds", "Queen"),
+new Card("Diamonds", "King"),
+new Card("Diamonds", "Ace"),
 
-two_of_hearts = Card("Hearts", 2);
-three_of_hearts = Card("Hearts", 3);
-four_of_hearts = Card("Hearts", 4);
-five_of_hearts = Card("Hearts", 5);
-six_of_hearts = Card("Hearts", 6);
-seven_of_hearts = Card("Hearts", 7);
-eight_of_hearts = Card("Hearts", 8);
-nine_of_hearts = Card("Hearts", 9);
-ten_of_hearts = Card("Hearts", 10);
-jack_of_hearts = Card("Hearts", "Jack");
-queen_of_hearts = Card("Hearts", "Queen");
-king_of_hearts = Card("Hearts", "King");
-ace_of_hearts = Card("Hearts", "Ace");
+new Card("Hearts", 2),
+new Card("Hearts", 3),
+new Card("Hearts", 4),
+new Card("Hearts", 5),
+new Card("Hearts", 6),
+new Card("Hearts", 7),
+new Card("Hearts", 8),
+new Card("Hearts", 9),
+new Card("Hearts", 10),
+new Card("Hearts", "Jack"),
+new Card("Hearts", "Queen"),
+new Card("Hearts", "King"),
+new Card("Hearts", "Ace") ];
 
 
 
 const dealHand = () => {
+  let hand = '';
 
-  Math.floor(Math.random() * 52);
+  for (let i =0; i < 5; i++) {
+    const shuffle = Math.floor(Math.random() * 52);
+    const shuffleCard = cards[shuffle];
 
-  // update 'card_hand' DIV with appropriate information
-$("#card_hand").html("Button clicked");
+    hand += `${shuffleCard.value} of ${shuffleCard.suit}<br>`;
+  }
+  
+
+  
+$("#card_hand").html(hand);
 
   return false; // prevent page reload
 }
