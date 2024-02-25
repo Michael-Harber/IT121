@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+#weatherInfo {
+    margin-top: 20px;
+}
+
+.weather-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+}
+
+.weather-card img {
+    max-width: 50px;
+}
+
+#weatherForm {
+    text-align:center;
+}

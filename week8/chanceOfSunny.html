@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudy With A Chance Of Awesome</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<h1>Cloudy With A Chance Of Awesome</h1>
+
+<form id="weatherForm">
+<label for="cityInput">Enter City:</label>
+<input type="text" id="cityInput" required>
+<button type="submit">Get 5 Day Forecast!</button>
+</form>
+
+<div id="weatherInfo"></div>
+
+<script>
+const apiKey = 'aac2db063a68040307cf1715daffd892';
+
+const kelvinToF = (value) => {
+let fahrenheit = (((Number(value) - 273.15)*9)/5) + 32;
+return fahrenheit.toFixed(2);
+}
+
+const weatherForm = document.getElementById('weatherForm');
+const cityInput = document.getElementById('cityInput');
+const weatherInfo = document.getElementById('weatherInfo');
+
+weatherForm.addEventListener('submit', (event) => {
+event.preventDefault();
+const city = cityInput.value;
+
+fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+.then(response => response.json())
+.then(data => {
+const forecasts = data.list;
+
+weatherInfo.innerHTML = '<h2>5-Day Forecast</h2>';
+            
+            
+    const groupedForecasts = {};
+    forecasts.forEach(forecast => {
+    const date = forecast.dt_txt.split(' ')[0];
+    if (!groupedForecasts[date]) {
+    groupedForecasts[date] = [];
+    }
+    groupedForecasts[date].push(forecast);
+    });
+
+            
+    for (const date in groupedForecasts) {
+    const dailyForecasts = groupedForecasts[date];
+    const highTemp = Math.max(...dailyForecasts.map(forecast => forecast.main.temp));
+    const lowTemp = Math.min(...dailyForecasts.map(forecast => forecast.main.temp));
+    weatherInfo.innerHTML += `
+    <div>
+    <p>Date: ${new Date(dailyForecasts[0].dt * 1000).toDateString()}</p>
+    <img src="http://openweathermap.org/img/w/${dailyForecasts[0].weather[0].icon}.png" alt="Weather Icon">
+    <p>High: ${kelvinToF(highTemp)} °F</p>
+    <p>Low: ${kelvinToF(lowTemp)} °F</p>
+    <p>Description: ${dailyForecasts[0].weather[0].description}</p>
+    <p>Humidity: ${dailyForecasts[0].main.humidity}%</p>
+    </div>
+    `;
+    }
+})
+.catch(error => {
+console.error('Error fetching weather data:', error);
+weatherInfo.innerHTML = '<p>Error fetching weather data</p>';
+    });
+});
+</script>
+
+</body>
+</html>
