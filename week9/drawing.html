@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="drawing" height="640" width="480"></canvas>
+    <script>
+
+        let canvas = document.getElementById('drawing');
+        let context = canvas.getContext('2d');
+        let increment = 0
+        let speed = 5
+
+        setInterval (drawStuff, 50);
+
+        function drawStuff() {
+
+        bounce()
+        increment = increment + speed;
+
+        context.fillStyle = 'blue';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle= "yellow";
+        context.fillRect(increment, 10, 100, 100);
+
+        context.moveTo(0,120);
+        context.lineTo(600, 120);
+        context.lineWidth=3;
+        context.stroke();
+
+        context.beginPath();
+        context.arc(70, 315, 50, 0, 2 * Math.PI);
+        context.fillStyle= 'red';
+        context.fill();
+
+        context.save();
+
+        context.translate(60, 300);
+        context.rotate(Math.PI / 4);
+        context.translate(-60, -300);
+
+        context.rect(30, 255, 100, 100);
+        context.stroke();
+
+        context.restore();
+
+        }
+
+        function bounce() {
+            if(increment < 0) {
+            speed = -speed
+            }
+            if(increment > 380) {
+            speed = -speed
+            }
+        }
+
+    </script>
+</body>
+</html>
