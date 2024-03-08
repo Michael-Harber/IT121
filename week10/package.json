@@ -1,7 +1,7 @@
 {
-  "name": "week10homework",
+  "name": "week-10-homework",
   "version": "1.0.0",
-  "description": "Homework for week 10",
+  "description": "Week 10 homework. Node setup",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Michael-Harber/IT121.git#main"
   },
   "keywords": [
-    "homework"
+    "Homeowrk"
   ],
   "author": "Michael Harber",
   "license": "ISC",
