@@ -1,0 +1,22 @@
+{
+  "name": "week10homework",
+  "version": "1.0.0",
+  "description": "Homework for week 10",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michael-Harber/IT121.git#main"
+  },
+  "keywords": [
+    "homework"
+  ],
+  "author": "Michael Harber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Michael-Harber/IT121/issues"
+  },
+  "homepage": "https://github.com/Michael-Harber/IT121/tree/main#readme"
+}
